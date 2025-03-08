@@ -29,6 +29,14 @@ def bebe_low():
     playsound("assets/audio/bebe_low.m4a")
 
 
+def chime():
+    playsound("assets/audio/chime.mp3")
+
+
+def rare_chime():
+    playsound("assets/audio/rare_chime.mp3")
+
+
 def startup():
     engine.say("Hello!! My name is Gregor")
     engine.runAndWait()
