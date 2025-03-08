@@ -1,9 +1,9 @@
-from picamera2 import Picamera2, Preview
+from picamera2 import Picamera2
 from time import sleep
 
 cam = Picamera2()
 cam.configure("video")
-cam.start_preview(Preview.QTGL)
+cam.start_preview()
 cam.start()
 
 def take_photo(camera):
