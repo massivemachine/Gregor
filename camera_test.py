@@ -1,3 +1,15 @@
-from picamera2.outputs import FfmpegOutput
+from picamera2 import Picamera2, Preview
+from time import sleep
 
-stream = FfmpegOutput("-f mpegts udp://10.230.64.26:8000")
+cam = Picamera2()
+cam.configure("video")
+cam.start_preview(Preview.QTGL)
+cam.start()
+
+try:
+    while True:
+        sleep(2)
+        cam.capture_file("img.jpg")
+finally:
+    cam.stop()
+
