@@ -6,19 +6,35 @@ from speech import *
 # add a newly discovered plant to the list of discovered plants in discovered_plants.txt
 def append_new_plant(plant):
     # check plant has not already been discovered
-    discovered_plant_file = open("plant_files/discovered_plants.txt", "r")
-    for found_plant in discovered_plant_file:
+    discovered_plants_file = open("plant_files/discovered_plants.txt", "r")
+    for found_plant in discovered_plants_file:
         found_plant = found_plant.replace("\n", "")
         if found_plant == plant:
-            return
-    discovered_plant_file.close()
+            return 0
+    discovered_plants_file.close()
 
-    discovered_plant_file = open("plant_files/discovered_plants.txt", "a")
-    discovered_plant_file.write("\n" + plant)
-    discovered_plant_file.close()
+    # append new plants to the list of discovered ones
+    discovered_plants_file = open("plant_files/discovered_plants.txt", "a")
+    discovered_plants_file.write("\n" + plant)
+    discovered_plants_file.close()
 
+    chime()
     play("Wow, you discovered a new plant! Well done...")
+    return 1
 
+
+# check if a newly discovered plant is rare
+def check_plant_rarity(plant):
+    rare_plants_file = open("plant_files/rare_plants.txt", "r")
+    for rare_plant in rare_plants_file:
+        rare_plant = rare_plant.replace("\n", "")
+        rare_plant = rare_plant.split(", ")
+
+        if rare_plant[0] == plant:
+            rare_chime()
+            play("...You have found a rare plant!")
+            play("The " + plant + " " + rare_plant[1])
+    rare_plants_file.close()
 
 # identify a plant from a given image file
 def identify_plant(plant_image_file):
@@ -39,6 +55,9 @@ def identify_plant(plant_image_file):
         pass
     else:
         print(commonName)
-        append_new_plant(commonName)
+        new_plant = append_new_plant(commonName)
         play("You've found a " + commonName + "!")
         play(commonName + "s are part of the, " + family + ", family.")
+
+        if new_plant:
+            check_plant_rarity(commonName)
