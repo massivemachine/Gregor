@@ -15,6 +15,7 @@ engine.setProperty('voice', voices[1].id)
 '''
 engine.setProperty('voice', voices[1].id)
 
+
 def play(text):
     engine.say(text)
     engine.runAndWait()
@@ -32,9 +33,7 @@ def bebe_low():
     playsound(path_to_play)
 
 
-engine.say("Hello!! My name is Gregor")
-engine.runAndWait()
-bebe_high()
-
-
-
+def startup():
+    engine.say("Hello!! My name is Gregor")
+    engine.runAndWait()
+    bebe_high()
