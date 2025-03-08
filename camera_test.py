@@ -6,10 +6,14 @@ cam.configure("video")
 cam.start_preview(Preview.QTGL)
 cam.start()
 
+def take_photo(camera):
+    camera.capture_file("img.jpg")
+    sleep(1)
+
+
 try:
     while True:
-        sleep(2)
-        cam.capture_file("img.jpg")
+        take_photo(cam)
 finally:
     cam.stop()
 
