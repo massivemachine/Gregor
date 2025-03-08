@@ -22,15 +22,11 @@ def play(text):
 
 
 def bebe_high():
-    path_to_play = "/Users/panda/Documents/Uni/Computer Science/Competitions/Gregor/assets/audio/bebe_high.m4a"
-    path_to_play = path_to_play.replace(" ", "%20")
-    playsound(path_to_play)
+    playsound("assets/audio/bebe_high.m4a")
 
 
 def bebe_low():
-    path_to_play = "/Users/panda/Documents/Uni/Computer Science/Competitions/Gregor/assets/audio/bebe_low.m4a"
-    path_to_play = path_to_play.replace(" ", "%20")
-    playsound(path_to_play)
+    playsound("assets/audio/bebe_low.m4a")
 
 
 def startup():
