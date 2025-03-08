@@ -1,19 +1,11 @@
-from picamera2 import Picamera2
 from time import sleep
 
-cam = Picamera2()
-cam.configure("video")
-cam.start_preview()
-cam.start()
+input("this script takes photos, press enter to continue")
 
-def take_photo(camera):
-    camera.capture_file("img.jpg")
+def take_photo():
+    exec("libcamera-still -o img.jpg")
     sleep(1)
 
-
-try:
-    while True:
-        take_photo(cam)
-finally:
-    cam.stop()
+while True:
+    take_photo()
 
