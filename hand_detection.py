@@ -94,7 +94,7 @@ def detect_action(imgPath):
     if detect_hello(imgPath): return "hello"
     if detect_one(imgPath): return "option one"
     if detect_two(imgPath): return "option two"
-    if detect_three(imgPath): return "option three"
+    if detect_three(imgPath): return "three"
 
     if detect_thumbs_up(imgPath): return "thumbs up"
     if detect_thumbs_down(imgPath): return "thumbs down"
