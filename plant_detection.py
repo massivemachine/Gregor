@@ -1,4 +1,6 @@
 # Make request to plant API and return a JSON string with correct information
+import random
+
 import requests
 from speech import *
 
@@ -65,6 +67,7 @@ def check_milestones():
         milestones_file.write("\n" + str(num_discovered_plants))
         milestones_file.close()
 
+
 # identify a plant from a given image file
 def identify_plant(plant_image_file):
     # request plant identification from API
@@ -94,3 +97,42 @@ def identify_plant(plant_image_file):
         if new_plant:
             check_plant_rarity(commonName)
             check_milestones()
+        else:
+            return "quiz_mode"
+
+
+# ask a question from the list of quiz questions
+def ask_question():
+    quiz_intro()
+    play("You have already found this plant! Here's a fun question instead.")
+
+    quiz_questions_file = open("plant_files/quiz_questions.txt", "r")
+
+    line_count = 0
+    for _ in quiz_questions_file:
+        line_count += 1
+
+    quiz_questions_file.close()
+
+    q_num = (random.randrange(2, line_count + 1))
+
+    quiz_questions_file = open("plant_files/quiz_questions.txt", "r")
+
+    line_count = 0
+    for question in quiz_questions_file:
+        line_count += 1
+
+        if line_count == q_num:
+            question = question.replace("\n", "")
+            question = question.split(", ")
+
+            play(question[0])
+
+            if question[1] == "true" or question[1] == "false":
+                correct_answer()
+                play("Great work! You got it right!")
+            else:
+                wrong_answer()
+                play("Not quite, it was actually " + question[1] + ", you'll get it next time!")
+
+    quiz_questions_file.close()
