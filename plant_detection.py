@@ -19,7 +19,7 @@ def append_new_plant(plant):
     discovered_plants_file.close()
 
     chime()
-    play("Wow, you discovered a new plant! Well done...")
+    play("Wow, you discovered a new plant Well done")
     return 1
 
 
@@ -32,7 +32,7 @@ def check_plant_rarity(plant):
 
         if rare_plant[0] == plant:
             rare_chime()
-            play("...You have found a rare plant!")
+            play("You have found a rare plant")
             play("The " + plant + " " + rare_plant[1])
     rare_plants_file.close()
 
@@ -71,8 +71,10 @@ def identify_plant(plant_image_file):
     api_url = "https://my-api.plantnet.org/v2/identify/all?nb-results=1&api-key=2b10nwoFz8ran5YoWa2QmvofPe"
     image = open(plant_image_file, 'rb')
     file = [('images', image)]
+    print("send query")
     response = requests.post(api_url, files=file, data={})
     result = response.json()
+    print("got response")
 
     # parse returned JSON
     try:
@@ -80,13 +82,14 @@ def identify_plant(plant_image_file):
         commonName = (result['results'][0]['species']['commonNames'][0])
         family = (result['results'][0]['species']['family']['scientificNameWithoutAuthor'])
         genus = (result['results'][0]['species']['genus']['scientificNameWithoutAuthor'])
-    except:
-        pass
+    except Exception as e:
+        print("exception occurred")
+        print(e.getMessage())
     else:
         print(commonName)
         new_plant = append_new_plant(commonName)
-        play("You've found a " + commonName + "!")
-        play(commonName + "s are part of the, " + family + ", family.")
+        play("You've found a " + commonName)
+        play(commonName + "s are part of the " + family + " family.")
 
         if new_plant:
             check_plant_rarity(commonName)
