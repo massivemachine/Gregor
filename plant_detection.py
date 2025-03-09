@@ -18,7 +18,7 @@ def append_new_plant(plant):
     discovered_plants_file.write("\n" + plant)
     discovered_plants_file.close()
 
-   # chime()
+    chime()
     play("Wow, you discovered a new plant Well done")
     return 1
 

@@ -1,5 +1,6 @@
 from playsound import playsound
 import pyttsx3
+import subprocess
 
 engine = pyttsx3.init()
 engine.setProperty('rate', 130)
@@ -30,14 +31,14 @@ def bebe_low():
 
 
 def chime():
-    playsound("assets/audio/chime.mp3")
+    subprocess.run(["pw-play","assets/audio/chime.mp3"])
 
 
 def rare_chime():
-    playsound("assets/audio/rare_chime.mp3")
+    subprocess.run(["pw-play","assets/audio/rare_chime.mp3"])
 
 
 def startup():
     engine.say("Hello My name is Gregor")
     engine.runAndWait()
-#    bebe_high()
+    bebe_high()
