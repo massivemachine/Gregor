@@ -28,7 +28,7 @@ def bebe_high():
 
 
 def bebe_low():
-    sleep(1)
+    #sleep(1)
     subprocess.run(["pw-play","assets/audio/bebe_low.mp3"])
 
 
