@@ -48,15 +48,15 @@ def rare_chime():
 
 
 def quiz_intro():
-    playsound("assets/audio/quiz_intro.mp3")
+    subprocess.run("assets/audio/quiz_intro.mp3")
 
 
 def correct_answer():
-    playsound("assets/audio/correct_answer.mp3")
+    subprocess.run("assets/audio/correct_answer.mp3")
 
 
 def wrong_answer():
-    playsound("assets/audio/wrong_answer.mp")
+    subprocess.run("assets/audio/wrong_answer.mp")
 
 
 def startup():
