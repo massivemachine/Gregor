@@ -4,6 +4,7 @@ from time import sleep
 
 startup()
 
-subprocess.run(["libcamera-still","-o","assets/gregors_view.png"])
+#subprocess.run(["libcamera-still","-o","assets/gregors_view.png"])
 
-identify_plant("assets/gregors_view.png")
+#identify_plant("assets/gregors_view.png")
+identify_plant("assets/chris.png")

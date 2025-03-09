@@ -2,7 +2,7 @@ from playsound import playsound
 import pyttsx3
 
 engine = pyttsx3.init()
-engine.setProperty('rate', 160)
+engine.setProperty('rate', 130)
 voices = engine.getProperty('voices')
 
 '''counter = 0
@@ -13,7 +13,7 @@ for voice in voices:
     
 engine.setProperty('voice', voices[1].id)
 '''
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[2].id)
 
 
 def play(text):
@@ -38,6 +38,6 @@ def rare_chime():
 
 
 def startup():
-    engine.say("Hello!! My name is Gregor")
+    engine.say("Hello My name is Gregor")
     engine.runAndWait()
-    bebe_high()
+#    bebe_high()
