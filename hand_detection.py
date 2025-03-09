@@ -96,6 +96,6 @@ def detect_action(imgPath):
     if detect_two(imgPath): return "two"
     if detect_three(imgPath): return "three"
 
-    if detect_thumbs_up(imgPath): return "thumbs_up"
-    if detect_thumbs_down(imgPath): return "thumbs_down"
+    if detect_thumbs_up(imgPath): return "thumbs up"
+    if detect_thumbs_down(imgPath): return "thumbs down"
     return "unknown gesture"
