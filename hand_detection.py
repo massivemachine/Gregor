@@ -90,7 +90,7 @@ def detect_thumbs_down(imgPath):
 # main function to detect any valid hand actions
 def detect_action(imgPath):
 
-    if not detect_hand(imgPath).hand_landmarks: return "no hand detected"
+    if not detect_hand(imgPath).hand_landmarks: return ""
     if detect_hello(imgPath): return "hello"
     if detect_one(imgPath): return "one"
     if detect_two(imgPath): return "two"
