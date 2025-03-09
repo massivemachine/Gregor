@@ -23,15 +23,19 @@ def play(text):
 
 
 def bebe_high():
-    playsound("assets/audio/bebe_high.m4a")
+    playsound("assets/audio/bebe_high.mp3")
 
 
 def bebe_low():
-    playsound("assets/audio/bebe_low.m4a")
+    playsound("assets/audio/bebe_low.mp3")
 
 
 def chime():
     subprocess.run(["pw-play","assets/audio/chime.mp3"])
+
+
+def milestone_chime():
+    playsound("assets/audio/milestone_chime.mp3")
 
 
 def rare_chime():
