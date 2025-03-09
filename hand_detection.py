@@ -78,26 +78,20 @@ def detect_thumbs_down(pos, hand):
     return False
 
 # main function to detect any valid hand actions
-def detect_action_reduced(imgPath):
+def detect_action_main(imgPath):
     hand = detect_hand(imgPath)
     pos = get_pos(hand)
 
     if not detect_hand(imgPath).hand_landmarks: return ""
     if detect_hello(pos, hand): return "hello"
     if detect_thumbs_up(pos, hand): return "thumbs up"
-    return "unknown gesture"
 
 # main function to detect any valid hand actions
-def detect_action(imgPath):
+def detect_action_quiz(imgPath):
     hand = detect_hand(imgPath)
     pos = get_pos(hand)
 
     if not hand.hand_landmarks: return ""
-    if detect_hello(pos, hand): return "hello"
-    if detect_one(pos, hand): return "option one"
-    if detect_two(pos, hand): return "option two"
-    if detect_three(pos, hand): return "option three"
 
     if detect_thumbs_up(pos, hand): return "thumbs up"
     if detect_thumbs_down(pos, hand): return "thumbs down"
-    return "unknown gesture"

@@ -98,7 +98,8 @@ def identify_plant(plant_image_file):
             check_plant_rarity(commonName)
             check_milestones()
         else:
-            return "quiz_mode"
+            return 1
+    return 0
 
 
 # ask a question from the list of quiz questions
@@ -128,11 +129,6 @@ def ask_question():
 
             play(question[0])
 
-            if question[1] == "true" or question[1] == "false":
-                correct_answer()
-                play("Great work! You got it right!")
-            else:
-                wrong_answer()
-                play("Not quite, it was actually " + question[1] + ", you'll get it next time!")
+            return question[1]
 
     quiz_questions_file.close()
