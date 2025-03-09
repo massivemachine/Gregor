@@ -13,7 +13,7 @@ for voice in voices:
     
 engine.setProperty('voice', voices[1].id)
 '''
-engine.setProperty('voice', voices[2].id)
+engine.setProperty('voice', voices[1].id)
 
 
 def play(text):
@@ -39,6 +39,18 @@ def milestone_chime():
 
 def rare_chime():
     playsound("assets/audio/rare_chime.mp3")
+
+
+def quiz_intro():
+    playsound("assets/audio/quiz_intro.mp3")
+
+
+def correct_answer():
+    playsound("assets/audio/correct_answer.mp3")
+
+
+def wrong_answer():
+    playsound("assets/audio/wrong_answer.mp")
 
 
 def startup():
