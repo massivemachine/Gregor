@@ -89,10 +89,11 @@ def detect_thumbs_down(imgPath):
 # main function to detect any valid hand actions
 def detect_action(imgPath):
 
+    if not detect_hand(imgPath): return "no hand detected"
     if detect_hello(imgPath): return "hello"
     if detect_one(imgPath): return "one"
     if detect_two(imgPath): return "two"
     if detect_three(imgPath): return "three"
     if detect_thumbs_up(imgPath): return "thumbs_up"
     if detect_thumbs_down(imgPath): return "thumbs_down"
-    return "unknown"
+    return "unknown gesture"
