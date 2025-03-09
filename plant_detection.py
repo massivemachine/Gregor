@@ -84,7 +84,7 @@ def identify_plant(plant_image_file):
         genus = (result['results'][0]['species']['genus']['scientificNameWithoutAuthor'])
     except Exception as e:
         print("exception occurred")
-        print(e.getMessage())
+        print(str(e))
     else:
         print(commonName)
         new_plant = append_new_plant(commonName)
