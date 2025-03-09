@@ -67,13 +67,13 @@ def detect_curled_fingers(pos, hand):
         return True
     return False
 
-def detect_thumbs_up(pos):
-    if pos[4][1] < pos[3][1] and detect_curled_fingers(pos):
+def detect_thumbs_up(pos, hand):
+    if pos[4][1] < pos[3][1] and detect_curled_fingers(pos, hand):
         return True
     return False
 
-def detect_thumbs_down(pos):
-    if pos[4][1] > pos[3][1] and detect_curled_fingers(pos):
+def detect_thumbs_down(pos, hand):
+    if pos[4][1] > pos[3][1] and detect_curled_fingers(pos, hand):
         return True
     return False
 
@@ -84,7 +84,7 @@ def detect_action_reduced(imgPath):
 
     if not detect_hand(imgPath).hand_landmarks: return ""
     if detect_hello(pos, hand): return "hello"
-    if detect_thumbs_up(pos): return "thumbs up"
+    if detect_thumbs_up(pos, hand): return "thumbs up"
     return "unknown gesture"
 
 # main function to detect any valid hand actions
@@ -98,6 +98,6 @@ def detect_action(imgPath):
     if detect_two(pos, hand): return "option two"
     if detect_three(pos, hand): return "option three"
 
-    if detect_thumbs_up(pos): return "thumbs up"
-    if detect_thumbs_down(pos): return "thumbs down"
+    if detect_thumbs_up(pos, hand): return "thumbs up"
+    if detect_thumbs_down(pos, hand): return "thumbs down"
     return "unknown gesture"
