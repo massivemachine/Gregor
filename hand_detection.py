@@ -1,7 +1,7 @@
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from speech import *
+
 
 def detect_hand(imgPath):
     # assign settings to hand detector
@@ -66,11 +66,12 @@ def detect_three(imgPath):
 
 def detect_curled_fingers(imgPath):
     pos = get_pos(imgPath)
-    if (handedness(imgPath) == "Left" and pos[8][0] < pos[5][0]
-            and pos[12][0] < pos[9][0] and pos[16][0] < pos[13][0]
-            and pos[20][0] < pos[17][0]) or (handedness(imgPath) == "Right"
-            and pos[8][0] > pos[5][0] and pos[12][0] > pos[9][0]
-            and pos[16][0] > pos[13][0] and pos[20][0] > pos[17][0]):
+
+    if (handedness(imgPath) == "Right" and pos[8][0] < pos[6][0]
+            and pos[12][0] < pos[10][0] and pos[16][0] < pos[14][0]
+            and pos[20][0] < pos[18][0]) or (handedness(imgPath) == "Left"
+            and pos[8][0] > pos[6][0] and pos[12][0] > pos[10][0]
+            and pos[16][0] > pos[14][0] and pos[20][0] > pos[18][0]):
         return True
     return False
 
@@ -94,6 +95,7 @@ def detect_action(imgPath):
     if detect_one(imgPath): return "one"
     if detect_two(imgPath): return "two"
     if detect_three(imgPath): return "three"
-    if detect_thumbs_up(imgPath): return "thumbs_up"
-    if detect_thumbs_down(imgPath): return "thumbs_down"
+
+    if detect_thumbs_up(imgPath): return "thumbs up"
+    if detect_thumbs_down(imgPath): return "thumbs down"
     return "unknown gesture"
