@@ -66,9 +66,9 @@ def detect_three(imgPath):
 
 def detect_curled_fingers(imgPath):
     pos = get_pos(imgPath)
-    if (handedness(imgPath) == "Right" and pos[8][0] < pos[5][0]
+    if (handedness(imgPath) == "Left" and pos[8][0] < pos[5][0]
             and pos[12][0] < pos[9][0] and pos[16][0] < pos[13][0]
-            and pos[20][0] < pos[17][0]) or (handedness(imgPath) == "Left"
+            and pos[20][0] < pos[17][0]) or (handedness(imgPath) == "Right"
             and pos[8][0] > pos[5][0] and pos[12][0] > pos[9][0]
             and pos[16][0] > pos[13][0] and pos[20][0] > pos[17][0]):
         return True
@@ -88,6 +88,7 @@ def detect_thumbs_down(imgPath):
 
 # main function to detect any valid hand actions
 def detect_action(imgPath):
+
     if detect_hello(imgPath): return "hello"
     if detect_one(imgPath): return "one"
     if detect_two(imgPath): return "two"
