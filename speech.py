@@ -50,4 +50,5 @@ def rare_chime():
 def startup():
     engine.say("Hello My name is Gregor")
     engine.runAndWait()
+    sleep(1)
     bebe_high()
