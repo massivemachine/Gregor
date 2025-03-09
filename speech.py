@@ -1,6 +1,6 @@
-from playsound import playsound
 import pyttsx3
 import subprocess
+from time import sleep
 
 engine = pyttsx3.init()
 engine.setProperty('rate', 130)
@@ -23,22 +23,27 @@ def play(text):
 
 
 def bebe_high():
-    playsound("assets/audio/bebe_high.mp3")
+    sleep(1)
+    subprocess.run(["pw-play","assets/audio/bebe_high.mp3"])
 
 
 def bebe_low():
-    playsound("assets/audio/bebe_low.mp3")
+    sleep(1)
+    subprocess.run(["pw-play","assets/audio/bebe_low.mp3"])
 
 
 def chime():
+    sleep(1)
     subprocess.run(["pw-play","assets/audio/chime.mp3"])
 
 
 def milestone_chime():
-    playsound("assets/audio/milestone_chime.mp3")
+    sleep(1)
+    subprocess.run(["pw-play","assets/audio/milestone_chime.mp3"])
 
 
 def rare_chime():
+    sleep(1)
     subprocess.run(["pw-play","assets/audio/rare_chime.mp3"])
 
 
