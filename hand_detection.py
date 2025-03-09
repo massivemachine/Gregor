@@ -88,6 +88,13 @@ def detect_thumbs_down(imgPath):
     return False
 
 # main function to detect any valid hand actions
+def detect_action_reduced(imgPath):
+    if not detect_hand(imgPath).hand_landmarks: return ""
+    if detect_hello(imgPath): return "hello"
+    if detect_thumbs_up(imgPath): return "thumbs up"
+    return "unknown gesture"
+
+# main function to detect any valid hand actions
 def detect_action(imgPath):
 
     if not detect_hand(imgPath).hand_landmarks: return ""
