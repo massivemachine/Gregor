@@ -14,7 +14,7 @@ for voice in voices:
     
 engine.setProperty('voice', voices[1].id)
 '''
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[2].id)
 
 
 def play(text):
