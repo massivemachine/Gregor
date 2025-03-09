@@ -88,6 +88,7 @@ def identify_plant(plant_image_file):
     except Exception as e:
         print("exception occurred")
         print(str(e))
+        return 2
     else:
         print(commonName)
         new_plant = append_new_plant(commonName)

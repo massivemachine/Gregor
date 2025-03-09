@@ -13,9 +13,12 @@ while True:
 	subprocess.run(["libcamera-still","-o","assets/gregors_view.png"])
 
 	if plantScan:
-		if identify_plant("assets/gregors_view.png"):
+		num = identify_plant("assets/gregors_view.png")
+		if num == 1:
 			quizTime = True
 			solution = ask_question()
+		elif num == 2:
+			play("Unable to detect plant")
 		plantScan = False
 
 	elif quizTime:
