@@ -36,6 +36,35 @@ def check_plant_rarity(plant):
             play("The " + plant + " " + rare_plant[1])
     rare_plants_file.close()
 
+
+# check if a newly discovered plant hits a user milestone
+def check_milestones():
+    discovered_plants_file = open("plant_files/discovered_plants.txt", "r")
+
+    num_discovered_plants = 0
+    for _ in discovered_plants_file:
+        num_discovered_plants += 1
+    discovered_plants_file.close()
+
+    num_discovered_plants = num_discovered_plants - 1
+
+    if num_discovered_plants != 0 and num_discovered_plants % 5 == 0:
+        # check milestone has not already been met
+        milestones_file = open("plant_files/milestones.txt", "r")
+        for milestone in milestones_file:
+            milestone = milestone.replace("\n", "")
+            if milestone == str(num_discovered_plants):
+                return
+        milestones_file.close()
+
+        milestone_chime()
+        play("...Congratulations, you have found " + str(num_discovered_plants) + " plants!")
+
+        # append new milestone to the list of met ones
+        milestones_file = open("plant_files/milestones.txt", "a")
+        milestones_file.write("\n" + str(num_discovered_plants))
+        milestones_file.close()
+
 # identify a plant from a given image file
 def identify_plant(plant_image_file):
     # request plant identification from API
@@ -61,3 +90,4 @@ def identify_plant(plant_image_file):
 
         if new_plant:
             check_plant_rarity(commonName)
+            check_milestones()
